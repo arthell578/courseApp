@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
+using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -18,7 +19,12 @@ namespace API.Controllers
             _dataContext = dataContext;
         }
 
-        
+        [HttpGet]
+        public ActionResult<IEnumerable<User>> GetUsers()
+        {
+            var users = _dataContext.Users.ToList();
+            return users;
+        } 
 
     }
 }
