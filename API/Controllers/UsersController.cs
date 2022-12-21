@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -20,16 +21,16 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<User>> GetUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            var users = _dataContext.Users.ToList();
+            var users = await _dataContext.Users.ToListAsync();
             return users;
         } 
 
         [HttpGet("{id}")]
-        public ActionResult<User> GetUserByID(int id)
+        public async Task<ActionResult<User>> GetUserByID(int id)
         {
-            var user = _dataContext.Users.FirstOrDefault(u => u.Id == id);
+            var user = await _dataContext.Users.FirstOrDefaultAsync(u => u.Id == id);
             return user;
         }
 
