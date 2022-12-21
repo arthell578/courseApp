@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YHLQaz4hhM2cpGHCHz2L5PLYQkYM8JaMR1MA7n10MXtrmtFIIDNBs1gK+ER52t43ty27Kk0uqesDj95foxsiiA==",
+  "dgSpecHash": "t3tSXSFK4tp0Cl1OoJkadYcJ/nKHs/Xzwwi5eS75atmxCBUXw0JurK7c17d+NoCWmw0TKjMTUzL7idvolrdrbQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marcin\\DatingApp\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\Marcin\\DatingApp\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\Marcin\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
