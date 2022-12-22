@@ -25,7 +25,7 @@ namespace API.Controllers
         {
             var users = await _dataContext.Users.ToListAsync();
             return users;
-        } 
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUserByID(int id)
