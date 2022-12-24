@@ -44,10 +44,26 @@ namespace API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<User> Login(LoginDTO loginDTO)
+        public async Task<ActionResult<User>> Login(LoginDTO loginDTO)
         {
             var user = await _dataContext.Users.FirstOrDefaultAsync(u => u.UserName == loginDTO.Username);
+
+            if(user == null)
+            {
+                return Unauthorized();
+            }
+
+            using var hmac = new HMACSHA512(user.PasswordSalt);
             
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDTO.Password));
+
+            foreach(var i in computedHash){
+                if(computedHash[i] != user.PasswordHash[i]){
+                    return Unauthorized();
+                }
+            }
+
+            return user;
         }
 
         private async Task<bool> UserExists(string username)
