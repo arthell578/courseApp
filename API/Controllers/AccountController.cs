@@ -46,8 +46,10 @@ namespace API.Controllers
         [HttpPost("login")]
         public async Task<User> Login(LoginDTO loginDTO)
         {
-
+            var user = await _dataContext.Users.FirstOrDefaultAsync(u => u.UserName == loginDTO.Username);
+            
         }
+
         private async Task<bool> UserExists(string username)
         {
             return await _dataContext.Users.AnyAsync(u => u.UserName == username.ToLower());
