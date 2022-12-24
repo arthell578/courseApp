@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
@@ -21,7 +22,17 @@ namespace API.Controllers
         public async Task<ActionResult<User>> Register(string username, string password)
         {
             using var hmac = new HMACSHA512(); // using for automatic disposal, because one of inhereted classes implements IDisposable
-            
+
+            var user = new User{
+                UserName = username,
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
+                PasswordSalt = hmac.Key
+            };
+
+            _dataContext.Users.Add(user);
+            await _dataContext.SaveChangesAsync();
+
+            return user;
         }
     }
 }
