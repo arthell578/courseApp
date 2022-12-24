@@ -57,7 +57,8 @@ namespace API.Controllers
             
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDTO.Password));
 
-            foreach(var i in computedHash){
+            for(int i=0;i<computedHash.Length;i++)
+            {
                 if(computedHash[i] != user.PasswordHash[i]){
                     return Unauthorized();
                 }
