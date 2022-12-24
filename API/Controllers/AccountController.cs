@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -34,6 +35,11 @@ namespace API.Controllers
             await _dataContext.SaveChangesAsync();
 
             return user; 
+        }
+
+        private async Task<bool> UserExists(string username)
+        {
+            return await _dataContext.Users.AnyAsync(u => u.UserName == username);
         }
     }
 }
