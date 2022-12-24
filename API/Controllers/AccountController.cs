@@ -23,7 +23,8 @@ namespace API.Controllers
         {
             using var hmac = new HMACSHA512(); // using for automatic disposal, because one of inhereted classes implements IDisposable
 
-            var user = new User{
+            var user = new User
+            {
                 UserName = username,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
                 PasswordSalt = hmac.Key
@@ -32,7 +33,7 @@ namespace API.Controllers
             _dataContext.Users.Add(user);
             await _dataContext.SaveChangesAsync();
 
-            return user;
+            return user; 
         }
     }
 }
