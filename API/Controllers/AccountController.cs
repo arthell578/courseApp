@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using API.Data;
+using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -20,14 +21,19 @@ namespace API.Controllers
         }
 
         [HttpPost("register")] // api/account/register
-        public async Task<ActionResult<User>> Register(string username, string password)
+        public async Task<ActionResult<User>> Register(RegisterDTO registerDTO)
         {
+            if( await UserExists(registerDTO.Username))
+            {
+                return BadRequest("Username already used");
+            }
+
             using var hmac = new HMACSHA512(); // using for automatic disposal, because one of inhereted classes implements IDisposable
 
             var user = new User
             {
-                UserName = username,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password)),
+                UserName = registerDTO.Username.ToLower(),
+                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDTO.Password)),
                 PasswordSalt = hmac.Key
             };
 
@@ -39,7 +45,7 @@ namespace API.Controllers
 
         private async Task<bool> UserExists(string username)
         {
-            return await _dataContext.Users.AnyAsync(u => u.UserName == username);
+            return await _dataContext.Users.AnyAsync(u => u.UserName == username.ToLower());
         }
     }
 }
