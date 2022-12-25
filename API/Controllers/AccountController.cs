@@ -24,7 +24,7 @@ namespace API.Controllers
         }
 
         [HttpPost("register")] // api/account/register
-        public async Task<ActionResult<User>> Register(RegisterDTO registerDTO)
+        public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
         {
             if( await UserExists(registerDTO.Username))
             {
@@ -43,11 +43,15 @@ namespace API.Controllers
             _dataContext.Users.Add(user);
             await _dataContext.SaveChangesAsync();
 
-            return user; 
+            return new UserDTO
+            {
+                Username = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            }; 
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<User>> Login(LoginDTO loginDTO)
+        public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO)
         {
             var user = await _dataContext.Users.FirstOrDefaultAsync(u => u.UserName == loginDTO.Username);
 
@@ -67,7 +71,11 @@ namespace API.Controllers
                 }
             }
 
-            return user;
+            return new UserDTO
+            {
+                Username = user.UserName,
+                Token = _tokenService.CreateToken(user)
+            }; 
         }
 
         private async Task<bool> UserExists(string username)
