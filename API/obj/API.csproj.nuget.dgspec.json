@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Marcin\\DatingApp\\api\\API.csproj": {}
+    "c:\\Users\\Marcin\\DatingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Marcin\\DatingApp\\api\\API.csproj": {
+    "c:\\Users\\Marcin\\DatingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Marcin\\DatingApp\\api\\API.csproj",
+        "projectUniqueName": "c:\\Users\\Marcin\\DatingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Marcin\\DatingApp\\api\\API.csproj",
+        "projectPath": "c:\\Users\\Marcin\\DatingApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Marcin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Marcin\\DatingApp\\api\\obj\\",
+        "outputPath": "c:\\Users\\Marcin\\DatingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Marcin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,7 +21,6 @@
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -57,6 +56,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.25.1, )"
             }
           },
           "imports": [
