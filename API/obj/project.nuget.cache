@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D0rr5H2Es0sXfX1mGzSLRMwoJJRhuA6n3naYCY+cHL3lamVxuzLr9f0Ulaue9L0yjQ01AHTomPSHn/YUTvr6kw==",
+  "dgSpecHash": "g8bq//Y7jNwp/a0oJ/vrHgA6yINAL8nmLooEjHr9CZ25d5aXlsB+8wPdu1oOWLbNHPf4jHomzpnp9u9W/B1DhA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Marcin\\DatingApp\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\Marcin\\DatingApp\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marcin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Marcin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
