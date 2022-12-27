@@ -22,3 +22,7 @@ export class AccountService {
     )
   }
 
+  logout(model: any){
+    localStorage.removeItem('user');
+  }
+}
