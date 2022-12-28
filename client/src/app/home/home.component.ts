@@ -13,9 +13,14 @@ export class HomeComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.users();
+    this.getUsers();
   }
   
+
+  registerToggle(){
+    this.registerMode = !this.registerMode;
+  }
+
   getUsers(){
     this.http.get('https://localhost:7205/api/users').subscribe({
       next:  response => this.users = response,
@@ -24,7 +29,4 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  registerToggle(){
-    this.registerMode = !this.registerMode;
-  }
 }
