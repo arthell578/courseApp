@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'members/:id', component: MemberDetailComponent},
   {path: 'lists', component: ListsComponent},
   {path: 'messages', component: MessagesComponent},
-  {path: '**', component: HomeComponent, pathMatch: 'full'}, // wildcard,
-  {path: 'errors', component: TestErrorComponent}
+  {path: 'errors', component: TestErrorComponent},
+  {path: '**', component: HomeComponent, pathMatch: 'full'} // wildcard,
 ];
 
 @NgModule({
