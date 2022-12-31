@@ -34,5 +34,15 @@ namespace API.Controllers
 
             return thing;
         }
+
+        [Authorize]
+        [HttpGet("server-error")]
+        public ActionResult<string> GetServerError(){
+            var thing = _dataContext.Users.Find(-1);
+
+            var thingToReturn = thing.ToString();
+
+            return thingToReturn;
+        }
     }
 }
