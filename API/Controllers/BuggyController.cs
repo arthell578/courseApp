@@ -24,4 +24,15 @@ namespace API.Controllers
         public ActionResult<string> GetSecret(){
             return "secret text";
         }
+        
+        [Authorize]
+        [HttpGet("not-found")]
+        public ActionResult<User> GetNotFound(){
+            var thing = _dataContext.Users.Find(-1);
+
+            if(thing == null) return NotFound();
+
+            return thing;
+        }
+    }
 }
