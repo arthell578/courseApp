@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Entities;
 using API.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
 {
@@ -15,29 +16,29 @@ namespace API.Data
             _dataContext = dataContext;
         }
 
-        public Task<User> GetUserByIdAsync(int id)
+        public async Task<User> GetUserByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _dataContext.Users.FindAsync(id);
         }
 
-        public Task<User> GetUserByUsernameAsync(string username)
+        public async Task<User> GetUserByUsernameAsync(string username)
         {
-            throw new NotImplementedException();
+            return await _dataContext.Users.SingleOrDefaultAsync(x => x.UserName == username);
         }
 
-        public Task<IEnumerable<User>> GetUsersAsync()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            throw new NotImplementedException();
+            return await _dataContext.Users.ToListAsync();
         }
 
-        public Task<bool> SaveAllAsync()
+        public async Task<bool> SaveAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dataContext.SaveChangesAsync() > 0;
         }
 
         public void Update(User user)
         {
-            throw new NotImplementedException();
+            _dataContext.Entry(user).State = EntityState.Modified;
         }
     }
 }
