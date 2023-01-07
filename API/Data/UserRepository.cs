@@ -9,6 +9,12 @@ namespace API.Data
 {
     public class UserRepository : IUserRepository
     {
+        private readonly DataContext _dataContext;
+        public UserRepository(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
         public Task<User> GetUserByIdAsync(int id)
         {
             throw new NotImplementedException();
