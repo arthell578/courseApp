@@ -28,11 +28,10 @@ namespace API.Controllers
             
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUserByID(int id)
+        [HttpGet("username}")]
+        public async Task<ActionResult<User>> GetUserByID(string username)
         {
-            var user = await _dataContext.Users.FirstOrDefaultAsync(u => u.Id == id);
-            return user;
+            return await _userRepository.GetUserByUsernameAsync(username);   
         }
 
     }
