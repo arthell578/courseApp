@@ -28,7 +28,7 @@ namespace API.Controllers
             
         }
 
-        [HttpGet("username}")]
+        [HttpGet("{username}")]
         public async Task<ActionResult<User>> GetUserByID(string username)
         {
             return await _userRepository.GetUserByUsernameAsync(username);   
