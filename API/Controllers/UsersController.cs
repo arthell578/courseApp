@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +14,11 @@ namespace API.Controllers
     [Authorize]
     public class UsersController : BaseApiController
     {
-        private readonly DataContext _dataContext;
+        private readonly IUserRepository _userRepository;
 
-        public UsersController(DataContext dataContext)
+        public UsersController(IUserRepository userRepository)
         {
-            _dataContext = dataContext;
+            _userRepository = userRepository;
         }
 
         [HttpGet]
