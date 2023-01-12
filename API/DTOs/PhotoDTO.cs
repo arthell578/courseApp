@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.DTOs
 {
-    internal class PhotoDTO
+    public class PhotoDTO
     {
         public int Id{get; set;}
         public string Url {get; set;}
