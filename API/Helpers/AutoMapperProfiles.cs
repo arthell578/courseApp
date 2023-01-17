@@ -13,7 +13,8 @@ namespace API.Helpers
     {
         protected AutoMapperProfiles()
         {
-            CreateMap<User, MemberDTO>();
+            CreateMap<User, MemberDTO>()
+                .ForMember(m => m.PhotoUrl, opt=>opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url));
             CreateMap<Photo, PhotoDTO>();
         }
     }
