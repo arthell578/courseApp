@@ -4,7 +4,7 @@ export interface Photo {
     isMain: boolean;
 }
 
-export interface RootObject{
+export interface Member{
     id: number;
     userName: string;
     PhotoUrl: string;
