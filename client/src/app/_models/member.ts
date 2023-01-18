@@ -1,8 +1,4 @@
-export interface Photo {
-    id: number;
-    url: string;
-    isMain: boolean;
-}
+import { Photo } from "./Photo";
 
 export interface Member{
     id: number;
