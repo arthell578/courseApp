@@ -12,11 +12,11 @@ export class MembersService {
   constructor(private http:HttpClient) { }
 
   getMembers(){
-    return this.http.get<Member[]>(this.baseUrl+'users');
+    return this.http.get<Member[]>(this.baseUrl+'users', this.getHttpOptions());
   }
 
   getHttpOptions(){
-    const userString = localStorage.getItem('user', this.getHttpOptions);
+    const userString = localStorage.getItem('user');
     
     if(!userString) return;
 
