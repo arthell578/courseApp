@@ -14,6 +14,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { MemberCardComponent } from './members/member-card/member-card.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
     MemberDetailComponent,
     ListsComponent,
     MessagesComponent,
-    TestErrorComponent
+    TestErrorComponent,
+    MemberCardComponent
   ],
   imports: [
     BrowserModule,
