@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Member } from '../_models/member';
@@ -13,5 +13,18 @@ export class MembersService {
 
   getMembers(){
     return this.http.get<Member[]>(this.baseUrl+'users');
+  }
+
+  getHttpOptions(){
+    const userString = localStorage.getItem('user', this.getHttpOptions);
+    
+    if(!userString) return;
+
+    const user = JSON.parse(userString);
+    return {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + user.token
+      })
+    }
   }
 }
