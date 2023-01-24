@@ -15,6 +15,10 @@ export class MembersService {
     return this.http.get<Member[]>(this.baseUrl+'users', this.getHttpOptions());
   }
 
+  getMember(username: string){
+    return this.http.get<Member>(this.baseUrl + 'users/' + username, this.getHttpOptions())
+  }
+
   getHttpOptions(){
     const userString = localStorage.getItem('user');
     
